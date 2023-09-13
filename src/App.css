@@ -1,0 +1,587 @@
+.hero {
+  height: 80vh;
+  color: #fff;
+  padding: 1.5vw 8vw;
+  position: relative;
+}
+
+.hero-hd {
+  position: absolute;
+  top: 1.5vw;
+  width: 84vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-hd,
+.user-nav {
+  display: flex;
+  gap: 1.5vw;
+}
+
+.logo-hd>img {
+  width: 3.7vw;
+  height: 3.7vw;
+}
+
+.logo-hd>p {
+  font-size: 1.78vw;
+  margin: 0;
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search-bar>input {
+  width: 38.9vw;
+  padding: 0.75vw;
+  border-radius: 6px;
+  border: 2px solid var(--gray-300, #D1D5DB);
+  background: transparent;
+  color: #fff;
+  font-size: 1.19vw;
+}
+
+.search-bar>input:focus {
+  outline: 2px solid var(--gray-300, #D1D5DB);
+}
+
+.search-bar>input::placeholder {
+  color: #fff;
+}
+
+.search-bar>img {
+  position: absolute;
+  top: 1vw;
+  right: 1vw;
+}
+
+.user-nav>p {
+  line-height: 150%;
+  font-size: 1.19vw;
+  margin: 0;
+  min-width: 5vw;
+  cursor: pointer;
+}
+
+.user-nav>img {
+  width: 2.5vw;
+  height: 2.5vw;
+}
+
+.hero-bd {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 27vw;
+}
+
+.hero-bd>h1 {
+  font-size: 2.97vw;
+  font-weight: 700;
+}
+
+.hero-bd p,
+.hero-bd span {
+  font-weight: 500;
+  font-size: 1vw;
+}
+
+.play-btn {
+  background: var(--rose-700, #BE123C);
+  padding: 0.75vw 1.2vw;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  font-size: 1.19vw;
+  font-weight: 700;
+}
+
+.play-btn>img {
+  vertical-align: middle;
+}
+
+.ratings {
+  display: flex;
+  gap: 3vw;
+}
+
+.ratings>div,
+.card-rating {
+  display: flex;
+  gap: 1vw;
+}
+
+.placeholder-card,
+.movie-card {
+  width: 18.6vw;
+  height: 37vw;
+}
+
+.placeholder.poster-placeholder {
+  height: 27.5vw;
+}
+
+.flex-placeholder {
+  display: flex;
+  justify-content: space-between;
+}
+
+.placeholder-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+
+}
+
+.placeholder-container-all {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: 81vw;
+  padding: 5vh 4vw;
+
+}
+
+.featured {
+  padding: 5vw 8vw;
+}
+
+.featured>p {
+  font-size: 1.33vw;
+  color: #000;
+  font-weight: 400;
+}
+
+.featured-hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3.5vw;
+}
+
+.featured-hd>h1 {
+  font-size: 2.6vw;
+  font-weight: 700;
+  color: #000;
+}
+
+.featured-hd>a {
+  font-size: 1.33vw;
+  color: #BE123C;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.movie-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  row-gap: 6vw;
+}
+
+.movie-container-all {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  row-gap: 6vw;
+  width: 81vw;
+  padding: 5vh 4vw;
+}
+
+.movie-card {
+  position: relative;
+}
+
+.movie-card>a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+[data-testid="movie-poster"] {
+  width: 100%;
+}
+
+
+.fav-icon {
+  width: 2.22vw;
+  height: 2.22vw;
+  border-radius: 2.22vw;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 1vw;
+  right: 1vw;
+
+}
+
+.like g {
+  fill: #BE123C;
+}
+
+.like path {
+  stroke: #BE123C;
+  stroke-width: 1;
+  fill: #BE123C;
+}
+
+.movie-card [data-testid="movie-release-date"] {
+  font-size: 0.9vw;
+  font-weight: 700;
+  color: var(--gray-400, #9CA3AF);
+  margin-top: 1vw;
+}
+
+.movie-card [data-testid="movie-title"] {
+  font-size: 1.33vw;
+  font-weight: 700;
+  color: var(--gray-900, #111827);
+}
+
+.card-rating>span {
+  font-weight: 500;
+}
+
+.sidebar {
+  width: 18vw;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 6vh 0;
+  border: 1px solid rgba(0, 0, 0, 0.30);
+  border-radius: 0px 45px 45px 0px;
+}
+
+.hstack {
+  align-items: unset !important;
+}
+
+.sidebar ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 8vh 0;
+  padding-left: 0;
+}
+
+.sidebar li a {
+  padding: 4vh 0 4vh 3vw;
+  display: block;
+  text-decoration: none;
+}
+
+.sidebar li a img {
+  margin-right: 1vw;
+}
+
+.sidebar li a span,
+.logout span {
+  font-size: 1.5vw;
+  color: #666;
+  font-weight: 600;
+}
+
+.sidebar li a:hover,
+.sidebar li a:hover span {
+  background-color: #FFF1F2;
+  color: #BE123C;
+}
+
+.sidebar li a.active {
+  background: rgba(190, 18, 60, 0.10);
+  border-right: 6px #BE123C solid;
+  color: #BE123C;
+}
+
+.sidebar li a.active:hover {
+  background-color: #FFF1F2;
+  color: #BE123C;
+}
+
+.logout {
+  position: relative;
+  bottom: -10vh;
+  padding-left: 3vw;
+  display: flex;
+  align-items: center;
+}
+
+.logout>span,
+.logout>img {
+  cursor: pointer;
+}
+
+.sidebar>.logo-hd {
+  margin-left: 2vw;
+}
+
+.iframe {
+  width: 100%;
+}
+
+.frame {
+  width: 72vw;
+  height: 33vw;
+  border-radius: 20px;
+}
+
+.movie-detail {
+  padding: 5vh 4vw;
+  position: sticky;
+  width: 81vw;
+  top: 0;
+  right: 0;
+
+}
+
+.detail-bd,
+.detail {
+  padding: 0 2vw;
+}
+
+.detail-bd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1vw 0;
+}
+
+.detail-lt {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
+[data-testid="movie-title"],
+.prod-year {
+  font-size: 1.75vw;
+  color: #404040;
+  font-weight: 400;
+}
+
+.genre {
+  color: #B91C1C;
+  font-size: 1.11vw;
+  border: 1px solid #F8E7EB;
+  border-radius: 15px;
+  padding: 0.1vw 0.75vw;
+}
+
+.vote {
+  color: #bcb7b7;
+  font-size: 1.85vw;
+  line-height: normal;
+}
+
+.detail {
+  display: flex;
+  gap: 4vw;
+}
+
+.detail>div>p {
+  color: #333;
+  font-size: 1.5vw;
+  font-weight: 400;
+}
+
+.detail>img {
+  width: 18.6vw;
+  height: 25vw;
+  border-radius: 10px;
+}
+
+.alt-color {
+  color: #BE123C;
+}
+
+.spinner-border {
+  display: block !important;
+  margin: 2.22vw auto;
+}
+
+@media(max-width: 780px) {
+  .hero {
+    padding-top: 2.5vw;
+  }
+
+  .logo-hd img {
+    width: 7vw;
+    height: 7vw;
+  }
+
+  .user-nav img {
+    width: 6vw;
+    height: 6vw;
+  }
+
+  .logo-hd p {
+    font-size: 3vw;
+  }
+
+  .logo-hd,
+  .user-nav {
+    display: flex;
+    gap: 3vw;
+    align-items: center;
+  }
+
+  .user-nav p {
+    font-size: 2.5vw;
+  }
+
+
+  .search-bar {
+    width: 80vw;
+    top: 10vw;
+  }
+
+  .search-bar input {
+    width: 100%;
+    padding: 2vw 3vw;
+    font-size: 3vw;
+  }
+
+  .search-bar img {
+    top: 3vw;
+    right: 3vw;
+  }
+
+  .hero-bd {
+    width: 50vw;
+    top: 60%;
+  }
+
+  .hero-bd>h1 {
+    font-size: 3.5vw;
+  }
+
+  .hero-bd p,
+  .hero-bd span {
+    font-size: 2.5vw
+  }
+
+  .play-btn {
+    padding: 2.3vw 3vw;
+    font-size: 2.5vw;
+  }
+
+  .placeholder-card,
+  .movie-card {
+    width: 36vw;
+    height: unset;
+  }
+
+  .placeholder.poster-placeholder {
+    width: 36vw;
+    height: 55.8vw;
+  }
+
+  .movie-container,
+  .placeholder-container {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    width:84vw;
+  }
+
+  .placeholder-container-all,
+  .movie-container-all {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .hstack {
+    display: block !important;
+
+  }
+
+  .featured-hd>a {
+    font-size: 3vw;
+  }
+
+  .featured-hd>h1 {
+    font-size: 4vw;
+  }
+
+  .fav-icon {
+    width: 7vw;
+    height: 7vw;
+    top: 2.5vw;
+    right: 2.5vw;
+    border-radius: 7vw;
+  }
+
+  .movie-card [data-testid="movie-release-date"] {
+    font-size: 2.5vw;
+    margin-top: 1vw;
+  }
+
+  .movie-card [data-testid="movie-title"] {
+    font-size: 3vw;
+  }
+
+  .sidebar {
+    width: 30vw;
+    position: fixed;
+    padding: 3vh 0;
+    z-index: 1000;
+    background-color: #fff;
+  }
+
+  .exit{
+    margin-bottom: 3vh;
+    text-align: right;
+    padding-right: 3vw;
+  }
+
+  .sidebar li a span,
+  .logout span {
+    font-size: 3vw;
+  }
+
+  .frame {
+    width: 90vw;
+    height: 60vw;
+  }
+
+  .movie-detail {
+    width: 90vw;
+    position: unset;
+  }
+
+  [data-testid="movie-title"],
+.prod-year {
+  font-size: 3vw;
+}
+
+.genre {
+  font-size: 2.5vw;
+  padding: 0.8vw 2.5vw;
+}
+
+.vote {
+  font-size: 3vw;
+}
+
+.detail {
+  justify-content: center;
+  align-items: center;
+}
+
+.detail>div>p {
+  font-size: 2.5vw;
+}
+
+.menu {
+  margin-bottom: 3vh;
+  margin-left: 3vw;
+}
+
+.menu>img {
+  width: 6vw;
+}
+
+.container1 {
+  padding-top: 3vh;
+}
+}
