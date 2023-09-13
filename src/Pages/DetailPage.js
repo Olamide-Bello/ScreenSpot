@@ -8,7 +8,7 @@ const DetailPage = () => {
     const {menu, matches} = useContext(GlobalContext)
   return (
     <Stack direction='horizontal'>
-        {menu && <SideBar/>}
+        {menu && matches && <SideBar/>}
         {!matches && <SideBar/>}
         <MovieDetails/>
     </Stack>
