@@ -8,7 +8,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { toast } from 'react-toastify';
 
 const Featured = () => {
-    const { loading, featured, setFeatured, setFilmType, handleDecimal } = useContext(GlobalContext)
+    const { loading, featured, setFeatured, setFilmType, handleDecimal, handleUtc } = useContext(GlobalContext)
 
     // to set expected media type i.e "tv" or "movie" 
     const handleFilmType = (type) => {
@@ -47,7 +47,7 @@ const Featured = () => {
                         <div key={movie.id} data-testid='movie-card' className='movie-card'>
                             <Link onClick={() => handleFilmType(movie.media_type)} to={`/movies/${movie.id}`} >
                             <img data-testid='movie-poster' src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt='movie poster' />
-                            <p data-testid='movie-release-date'>{movie.release_date}</p>
+                            <p data-testid='movie-release-date'>{handleUtc(movie.release_date)}</p>
                             <h3 data-testid='movie-title'>{movie.title}</h3>
                             <div className='card-rating'>
                                 <img src={Imdb} alt='Imdb logo'/>

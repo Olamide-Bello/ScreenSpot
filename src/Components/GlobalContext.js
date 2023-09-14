@@ -13,6 +13,7 @@ export const GlobalContext = createContext({
     setUpcomingMovies: () => { },
     handleMenu: () => { },
     handleDecimal: () => { },
+    handleUtc: () => { },
     searchResponse: false,
     menu: false,
     loading: false,
@@ -52,6 +53,12 @@ function GlobalState({ children }) {
     //function to handle menu state
     const handleMenu = () => {
         setMenu(!menu)
+    }
+
+    //function to return a date string in UTC format
+    const handleUtc = (d) => {
+        const copy = new Date(d)
+        return copy.toUTCString()
     }
 
     // to fetch top rated movies from TMDB
@@ -161,6 +168,7 @@ function GlobalState({ children }) {
         setUpcomingMovies,
         handleMenu,
         handleDecimal,
+        handleUtc,
         searchResponse,
         menu,
         featured,

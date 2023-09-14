@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import Loading from './Loading'
 
 const SearchResult = () => {
-    const { movieList, setMovieList, loading, setFilmType, handleDecimal } = useContext(GlobalContext)
+    const { movieList, setMovieList, loading, setFilmType, handleDecimal, handleUtc } = useContext(GlobalContext)
 
     // to set expected media type i.e "tv" or "movie" 
     const handleFilmType = (type) => {
@@ -38,7 +38,7 @@ const SearchResult = () => {
                                 <div key={movie.id} data-testid='movie-card' className='movie-card'>
                                     <Link onClick={() => handleFilmType(movie.media_type)} to={movie.media_type === "tv" ? `/tv/${movie.id}` : `/movies/${movie.id}`} >
                                         <img data-testid='movie-poster' src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt='movie poster' />
-                                        <p data-testid='movie-release-date'>{movie.release_date || movie.first_air_date}</p>
+                                        <p data-testid='movie-release-date'>{handleUtc(movie.release_date) || handleUtc(movie.first_air_date)}</p>
                                         <h3 data-testid='movie-title'>{movie.title || movie.name}</h3>
                                         <div className='card-rating'>
                                             <img src={Imdb} alt='Imdb logo' />
