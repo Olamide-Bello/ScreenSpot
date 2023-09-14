@@ -61,7 +61,7 @@ const Hero = () => {
                 <div className='ratings'>
                     <div>
                         <img src={Imdb} alt='Imdb logo' />
-                        <span>{handleDecimal(spotlight.vote_average)}</span>
+                        <span>{handleDecimal(spotlight.vote_average)*10} / 100</span>
                     </div>
                     <div>
                         <img src={Tomato} alt='Rotten Tomato logo' />
