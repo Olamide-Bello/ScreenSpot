@@ -358,6 +358,7 @@
   display: flex;
   align-items: center;
   gap: 1vw;
+  flex-wrap: wrap;
 }
 
 [data-testid="movie-title"],
@@ -400,11 +401,6 @@
 
 .alt-color {
   color: #BE123C;
-}
-
-.spinner-border {
-  display: block !important;
-  margin: 2.22vw auto;
 }
 
 .footer {
@@ -601,7 +597,7 @@
   }
 
   .sidebar {
-    width: 30vw;
+    width: 33vw;
     position: fixed;
     padding: 3vh 0;
     z-index: 1000;
@@ -634,9 +630,18 @@
     font-size: 3vw;
   }
 
+  [data-testid="movie-title"] {
+    display: block;
+    flex: 0 0 100%;
+  }
+
   .genre {
     font-size: 2.5vw;
     padding: 0.8vw 2.5vw;
+  }
+
+  .detail-bd>.card-rating {
+    align-self: flex-end;
   }
 
   .vote {

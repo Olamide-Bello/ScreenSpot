@@ -54,7 +54,7 @@ const TvDetails = () => {
             </div>
             <div className='detail-bd'>
                 <div className='detail-lt'>
-                    <span data-testid='movie-title'>{movieDetail?.name}</span><span>|</span>
+                    <span data-testid='movie-title'>{movieDetail?.name}</span>{!matches &&<span>|</span>}
                     <span className='prod-year'>{prodYear}</span><span>|</span>
                     {movieDetail.genres?.map((each, index) => { return <span className='genre' key={index}>{each.name}</span> })}
                 </div>
