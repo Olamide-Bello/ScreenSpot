@@ -35,6 +35,9 @@ const MovieDetails = () => {
                     setMovieTrailerKey(officialTrailer.key)
 
                 }
+                if(response.status === 404 ) {
+                    throw Error('Content not found') 
+                } 
             } catch (error) {
                 toast.error(`${error.name}: ${error.message}. Check your internet connection and try again`)
             }

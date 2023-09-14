@@ -74,6 +74,7 @@ function GlobalState({ children }) {
                     setTopRated(result.results)
                     setLoading(false)
                 }
+
             } catch (error) {
                 toast.error(`${error.name}: ${error.message}. Check your internet connection and try again`)
             }
@@ -140,6 +141,9 @@ function GlobalState({ children }) {
                 } else {
                     setSearchResponse(false)
                 }
+                if(response.status === 404 ) {
+                    throw Error('Content not found') 
+                }               
                 
             } catch (error) {
                 toast.error(`${error.name}: ${error.message}. Check your internet connection and try again`)
