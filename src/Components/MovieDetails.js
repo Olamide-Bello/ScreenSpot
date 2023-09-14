@@ -25,8 +25,7 @@ const MovieDetails = () => {
                     const dateFormat = new Date(result.release_date)
                     const utcDate = dateFormat.toUTCString()
                     const year = dateFormat.getFullYear()
-                    const copy = utcDate.replace('GMT', 'UTC')
-                    setReleaseDate(copy)
+                    setReleaseDate(utcDate)
                     setProdYear(year)
                 }
                 if (result.videos) {
@@ -66,7 +65,7 @@ const MovieDetails = () => {
                 <div>
                     <p data-testid="movie-overview">{movieDetail?.overview}</p>
                     <p><span>Release Date : </span><span className='alt-color' data-testid='movie-release-date'>{releaseDate}</span></p>
-                    <p><span>Runtime : </span><span data-testid='movie-runtime' className='alt-color'>{movieDetail?.runtime}</span> minutes</p>
+                    <p><span>Runtime : </span><span data-testid='movie-runtime' className='alt-color'>{movieDetail?.runtime}</span><span className='alt-color'> minutes</span></p>
                     <p><span>Language :</span> {movieDetail.spoken_languages?.map((language, index) => <span className='alt-color' key={index}>{index ? ', ' : ''}{language.name}</span>)}</p>
                 </div>
                 {!matches && <img src={`https://image.tmdb.org/t/p/original${movieDetail?.poster_path}`} alt='movie poster' />}
