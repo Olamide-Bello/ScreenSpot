@@ -12,6 +12,7 @@ export const GlobalContext = createContext({
     setTrendingSeries: () => { },
     setUpcomingMovies: () => { },
     handleMenu: () => { },
+    handleDecimal: () => { },
     menu: false,
     loading: false,
     movieList: [],
@@ -35,6 +36,11 @@ function GlobalState({ children }) {
     const [matches, setMatches] = useState(
         window.matchMedia("(max-width: 780px)").matches
     )
+
+    //to change a number to one decimal place
+    const handleDecimal= (num) => {
+        return num?.toFixed(1)
+    }
 
     //to handle input change on search bar
     const handleChange = (e) => {
@@ -60,7 +66,7 @@ function GlobalState({ children }) {
                     setLoading(false)
                 }
             } catch (error) {
-                toast.info(`Error ${error.code}: ${error.message}`)
+                toast.error(`${error.name}: ${error.message}. Check your internet connection and try again`)
             }
 
         })
@@ -89,7 +95,7 @@ function GlobalState({ children }) {
                     setTrendingSeries(result.results)
                 }
             } catch (error) {
-                toast.info(`Error ${error.code}: ${error.message}`)
+                toast.error(`${error.name}: ${error.message}. Check your internet connection and try again`)
             }
         })
             ()
@@ -105,7 +111,7 @@ function GlobalState({ children }) {
                     setUpcomingMovies(result.results)
                 }
             } catch (error) {
-                toast.info(`Error ${error.code}: ${error.message}`)
+                toast.error(`${error.name}: ${error.message}. Check your internet connection and try again`)
             }
         })
             ()
@@ -124,7 +130,7 @@ function GlobalState({ children }) {
                     setLoading(false)
                 }
             } catch (error) {
-                toast.info(`Error ${error.code}: ${error.message}`)
+                toast.error(`${error.name}: ${error.message}. Check your internet connection and try again`)
             }
         })
             ()
@@ -149,6 +155,7 @@ function GlobalState({ children }) {
         setTrendingSeries,
         setUpcomingMovies,
         handleMenu,
+        handleDecimal,
         menu,
         featured,
         loading,

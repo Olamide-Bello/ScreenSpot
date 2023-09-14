@@ -9,7 +9,7 @@ import Play from '../Assets/Play.png'
 import { toast } from 'react-toastify';
 
 const Hero = () => {
-    const { handleChange, matches } = useContext(GlobalContext)
+    const { handleChange, matches, handleDecimal } = useContext(GlobalContext)
     const [spotlight, setSpotlight] = useState({})
     const [logged, setLogged] = useState(false)
 
@@ -28,7 +28,7 @@ const Hero = () => {
                     setSpotlight(result)
                 }
             } catch (error) {
-                toast.info(`Error ${error.code}: ${error.message}`)
+                toast.error(`${error.name}: ${error.message}. Check your internet connection and try again`)
             }
 
         })
@@ -61,11 +61,11 @@ const Hero = () => {
                 <div className='ratings'>
                     <div>
                         <img src={Imdb} alt='Imdb logo' />
-                        <span>{spotlight?.vote_average}</span>
+                        <span>{handleDecimal(spotlight.vote_average)}</span>
                     </div>
                     <div>
                         <img src={Tomato} alt='Rotten Tomato logo' />
-                        <span>{spotlight?.popularity}</span>
+                        <span>80%</span>
                     </div>
                 </div>
                 <p>{spotlight?.overview}</p>

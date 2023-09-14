@@ -12,7 +12,7 @@ const TvDetails = () => {
     const [movieTrailerKey, setMovieTrailerKey] = useState("")
     const [prodYear, setProdYear] = useState("")
     const [releaseDate, setReleaseDate] = useState("")
-    const {handleMenu, matches} = useContext(GlobalContext)
+    const {handleMenu, matches, handleDecimal} = useContext(GlobalContext)
 
     //to fetch a tv series detail from TMDB
     useEffect(() => {
@@ -20,6 +20,7 @@ const TvDetails = () => {
             try{
                 const response = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=9fd66d9e18c945f965d9d1a26f32c9a1&append_to_response=videos`)
                 const result = await response.json()
+                console.log(response)
                 if (result.id) {
                     setMovieDetails(result)
                     const dateFormat = new Date(result.first_air_date)
@@ -37,7 +38,8 @@ const TvDetails = () => {
     
                 }
             }catch(error) {
-                toast.info(`Error ${error.code}: ${error.message}`)
+                console.log(error)
+                toast.info(`${error.name}: ${error.message}. Check your internet connection`)
             }
 
         })
@@ -59,7 +61,7 @@ const TvDetails = () => {
                 </div>
                 <div className='card-rating'>
                     <img src={Star} alt='star' />
-                    <span className='vote'>{movieDetail?.vote_average}</span>
+                    <span className='vote'>{handleDecimal(movieDetail.vote_average)}</span>
                 </div>
             </div>
             <div className='detail'>

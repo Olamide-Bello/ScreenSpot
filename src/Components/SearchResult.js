@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { Spinner } from 'react-bootstrap'
 
 const SearchResult = () => {
-    const { movieList, setMovieList, loading, setFilmType } = useContext(GlobalContext)
+    const { movieList, setMovieList, loading, setFilmType, handleDecimal } = useContext(GlobalContext)
 
     // to set expected media type i.e "tv" or "movie" 
     const handleFilmType = (type) => {
@@ -42,7 +42,7 @@ const SearchResult = () => {
                                         <h3 data-testid='movie-title'>{movie.title || movie.name}</h3>
                                         <div className='card-rating'>
                                             <img src={Imdb} alt='Imdb logo' />
-                                            <span>{movie.vote_average}</span>
+                                            <span>{handleDecimal(movie.vote_average)}</span>
                                         </div>
                                     </Link>
                                     <div onClick={() => toggleLike(movie.id, movie.liked, movie.title)} className='fav-icon'><Like className={movie.liked === true ? 'like' : ''} /></div>

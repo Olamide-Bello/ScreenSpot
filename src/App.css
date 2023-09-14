@@ -46,6 +46,7 @@
 
 .search-bar>input:focus {
   outline: 2px solid var(--gray-300, #D1D5DB);
+  border-radius: 6px;
 }
 
 .search-bar>input::placeholder {
@@ -112,6 +113,7 @@
 .card-rating {
   display: flex;
   gap: 1vw;
+  align-items: center;
 }
 
 .placeholder-card,

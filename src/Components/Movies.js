@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import Menu from '../Assets/Menu.png'
 
 const Movies = () => {
-    const {topRated, loading, setTopRated, handleMenu, matches} = useContext(GlobalContext)
+    const {topRated, loading, setTopRated, handleMenu, matches, handleDecimal} = useContext(GlobalContext)
     
     // a function to add or remove a movie from the favorite list 
     const toggleLike = (id, liked, title) => {
@@ -40,7 +40,7 @@ const Movies = () => {
                             <h3 data-testid='movie-title'>{movie.title}</h3>
                             <div className='card-rating'>
                                 <img src={Imdb} alt='Imdb logo'/>
-                                <span>{movie.vote_average}</span>
+                                <span>{handleDecimal(movie.vote_average)}</span>
                             </div>
                             </Link>
                             <div onClick={()=>toggleLike(movie.id, movie.liked, movie.title)} className='fav-icon'><Like className={movie.liked=== true ? 'like' : ''} /></div>

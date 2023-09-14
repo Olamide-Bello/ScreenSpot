@@ -12,7 +12,7 @@ const MovieDetails = () => {
     const [movieTrailerKey, setMovieTrailerKey] = useState("")
     const [prodYear, setProdYear] = useState("")
     const [releaseDate, setReleaseDate] = useState("")
-    const {matches, handleMenu} = useContext(GlobalContext)
+    const { matches, handleMenu } = useContext(GlobalContext)
 
     // to get a movie detail by id
     useEffect(() => {
@@ -23,7 +23,7 @@ const MovieDetails = () => {
                 if (result.id) {
                     setMovieDetails(result)
                     const dateFormat = new Date(result.release_date)
-                    const utcDate= dateFormat.toUTCString()
+                    const utcDate = dateFormat.toUTCString()
                     const year = dateFormat.getFullYear()
                     const copy = utcDate.replace('GMT', 'UTC')
                     setReleaseDate(copy)
@@ -34,10 +34,10 @@ const MovieDetails = () => {
                         video => video.name.includes("Official Trailer") || video.name.includes("Trailer")
                     )
                     setMovieTrailerKey(officialTrailer.key)
-    
+
                 }
-            } catch(error) {
-                toast.info(`Error ${error.code}: ${error.message}`)
+            } catch (error) {
+                toast.error(`${error.name}: ${error.message}. Check your internet connection and try again`)
             }
 
         })
@@ -47,7 +47,7 @@ const MovieDetails = () => {
 
     return (
         <div className='movie-detail'>
-            {matches && <div className='menu'><img onClick={handleMenu} src={Menu} alt='menu'/></div>}
+            {matches && <div className='menu'><img onClick={handleMenu} src={Menu} alt='menu' /></div>}
             <div className="iframe">
                 <YouTube videoId={movieTrailerKey} iframeClassName="frame" />
             </div>
@@ -66,10 +66,10 @@ const MovieDetails = () => {
                 <div>
                     <p data-testid="movie-overview">{movieDetail?.overview}</p>
                     <p><span>Release Date : </span><span className='alt-color' data-testid='movie-release-date'>{releaseDate}</span></p>
-                    <p><span>Runtime : </span><span data-testid='movie-runtime' className='alt-color'>{movieDetail?.runtime} minutes</span></p>
+                    <p><span>Runtime : </span><span data-testid='movie-runtime' className='alt-color'>{movieDetail?.runtime}</span> minutes</p>
                     <p><span>Language :</span> {movieDetail.spoken_languages?.map((language, index) => <span className='alt-color' key={index}>{index ? ', ' : ''}{language.name}</span>)}</p>
                 </div>
-                 {!matches && <img src={`https://image.tmdb.org/t/p/original${movieDetail?.poster_path}`} alt='movie poster'/>}
+                {!matches && <img src={`https://image.tmdb.org/t/p/original${movieDetail?.poster_path}`} alt='movie poster' />}
             </div>
         </div>
     )
