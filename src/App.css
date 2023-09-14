@@ -401,6 +401,35 @@
   margin: 2.22vw auto;
 }
 
+.footer {
+  padding: 8vh 0 !important;
+  text-align: center;
+  padding:  0;
+
+}
+
+.footer * {
+  vertical-align: middle;
+}
+
+.socials,
+.policy {
+  display: flex;
+  justify-content: center;
+  gap: 2vw;
+  font-size: 1.2vw;
+  color: var(--gray-900, #111827);
+  font-weight: 700;
+  margin-bottom: 2vh;
+}
+
+.footer>p {
+  color: var(--gray-500, #6B7280);
+  font-size: 1.2vw;
+  font-weight: 700;
+}
+
+
 @media(max-width: 780px) {
   .hero {
     padding-top: 2.5vw;
@@ -585,5 +614,10 @@
 
 .container1 {
   padding-top: 3vh;
+}
+
+.policy,
+.footer>p {
+  font-size: 2.5vw;
 }
 }
