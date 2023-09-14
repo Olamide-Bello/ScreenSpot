@@ -13,6 +13,7 @@ export const GlobalContext = createContext({
     setUpcomingMovies: () => { },
     handleMenu: () => { },
     handleDecimal: () => { },
+    searchResponse: false,
     menu: false,
     loading: false,
     movieList: [],
@@ -32,6 +33,7 @@ function GlobalState({ children }) {
     const [loading, setLoading] = useState(false)
     const [filmType, setFilmType] = useState("")
     const [menu, setMenu] = useState(false)
+    const [searchResponse, setSearchResponse] = useState(false)
     const [upComingMovies, setUpcomingMovies] = useState([])
     const [matches, setMatches] = useState(
         window.matchMedia("(max-width: 780px)").matches
@@ -124,11 +126,14 @@ function GlobalState({ children }) {
                 setLoading(true)
                 const response = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=9fd66d9e18c945f965d9d1a26f32c9a1&language=en-US&query=${searchParam}&page=1&include_adult=true`)
                 const result = await response.json()
-
-                if (result) {
+                if (response.status === 200) {
                     setMovieList(result.results)
+                    setSearchResponse(true)
                     setLoading(false)
+                } else {
+                    setSearchResponse(false)
                 }
+                
             } catch (error) {
                 toast.error(`${error.name}: ${error.message}. Check your internet connection and try again`)
             }
@@ -156,6 +161,7 @@ function GlobalState({ children }) {
         setUpcomingMovies,
         handleMenu,
         handleDecimal,
+        searchResponse,
         menu,
         featured,
         loading,

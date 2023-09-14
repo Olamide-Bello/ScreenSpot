@@ -4,7 +4,7 @@ import Imdb from '../Assets/Imdb.png'
 import { ReactComponent as Like } from '../Assets/Heart.svg'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify';
-import { Spinner } from 'react-bootstrap'
+import Loading from './Loading'
 
 const SearchResult = () => {
     const { movieList, setMovieList, loading, setFilmType, handleDecimal } = useContext(GlobalContext)
@@ -29,7 +29,7 @@ const SearchResult = () => {
         <>
             {
                 loading ?
-                    <Spinner animation="border" role="status" />
+                    <Loading />
                     :
                     <div className='featured'>
                         <p>Search Result</p>

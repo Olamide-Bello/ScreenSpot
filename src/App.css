@@ -150,7 +150,7 @@
 }
 
 .featured>p {
-  font-size: 1.33vw;
+  font-size: 2.22vw;
   color: #000;
   font-weight: 400;
 }
@@ -179,6 +179,12 @@
   display: grid;
   grid-template-columns: auto auto auto auto;
   row-gap: 6vw;
+}
+
+.movie-container>p {
+  font-size: 1.33vw;
+  color: #000;
+  font-weight: 400;
 }
 
 .movie-container-all {
@@ -404,7 +410,7 @@
 .footer {
   padding: 8vh 0 !important;
   text-align: center;
-  padding:  0;
+  padding: 0;
 
 }
 
@@ -427,6 +433,41 @@
   color: var(--gray-500, #6B7280);
   font-size: 1.2vw;
   font-weight: 700;
+}
+
+.ring-container {
+  width: 5vw;
+  aspect-ratio: 1;
+  position: relative;
+  margin: 2vw auto;
+}
+
+.ring1,
+.ring2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  border: 4px solid #B91C1C;
+  border-radius: 50%;
+  background-color: transparent;
+  animation: scale 800ms infinite;
+}
+
+.ring2 {
+  animation-delay: 400ms;
+}
+
+@keyframes scale {
+  from {
+    transform: scale(0.2);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
 }
 
 
@@ -511,7 +552,11 @@
   .placeholder-container {
     grid-template-columns: auto auto;
     justify-content: space-between;
-    width:84vw;
+    width: 84vw;
+  }
+
+  .movie-container>p {
+    font-size: 2.5vw;
   }
 
   .placeholder-container-all,
@@ -520,10 +565,14 @@
     justify-content: space-between;
     width: 100%;
   }
-  
+
   .hstack {
     display: block !important;
 
+  }
+
+  .featured>p {
+    font-size: 3.5vw;
   }
 
   .featured-hd>a {
@@ -559,7 +608,7 @@
     background-color: #fff;
   }
 
-  .exit{
+  .exit {
     margin-bottom: 3vh;
     text-align: right;
     padding-right: 3vw;
@@ -581,43 +630,43 @@
   }
 
   [data-testid="movie-title"],
-.prod-year {
-  font-size: 3vw;
-}
+  .prod-year {
+    font-size: 3vw;
+  }
 
-.genre {
-  font-size: 2.5vw;
-  padding: 0.8vw 2.5vw;
-}
+  .genre {
+    font-size: 2.5vw;
+    padding: 0.8vw 2.5vw;
+  }
 
-.vote {
-  font-size: 3vw;
-}
+  .vote {
+    font-size: 3vw;
+  }
 
-.detail {
-  justify-content: center;
-  align-items: center;
-}
+  .detail {
+    justify-content: center;
+    align-items: center;
+  }
 
-.detail>div>p {
-  font-size: 2.5vw;
-}
+  .detail>div>p {
+    font-size: 2.5vw;
+  }
 
-.menu {
-  margin-bottom: 3vh;
-  margin-left: 3vw;
-}
+  .menu {
+    margin-bottom: 3vh;
+    margin-left: 3vw;
+  }
 
-.menu>img {
-  width: 6vw;
-}
+  .menu>img {
+    width: 6vw;
+  }
 
-.container1 {
-  padding-top: 3vh;
-}
+  .container1 {
+    padding-top: 3vh;
+  }
 
-.policy,
-.footer>p {
-  font-size: 2.5vw;
-}
+  .policy,
+  .footer>p {
+    font-size: 2.5vw;
+  }
 }

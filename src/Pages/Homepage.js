@@ -6,13 +6,14 @@ import SearchResult from '../Components/SearchResult'
 import Footer from '../Components/Footer'
 
 const Homepage = () => {
-  const { movieList } = useContext(GlobalContext)
+  const { searchParam } = useContext(GlobalContext)
+  
   return (
     <>
       <Hero />
-      {movieList && movieList.length > 0 ?
-        <SearchResult /> :
-        <Featured />
+      { searchParam.trim().length === 0 ?
+        <Featured /> :
+        <SearchResult />
       }
       <Footer/>
     </>
